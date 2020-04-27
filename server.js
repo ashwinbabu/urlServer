@@ -16,7 +16,7 @@ app.get('/:shortUrl',(req,res)=>{
         let shortUrl = parseInt(req.params.shortUrl);
         collection.findOne({"shortUrl" : shortUrl})
         .then((x)=>{
-            res.redirect(x.longUrl);
+            res.redirect("https://"+x.longUrl);
         }).catch((err)=>{
             client.close();
             throw err;
